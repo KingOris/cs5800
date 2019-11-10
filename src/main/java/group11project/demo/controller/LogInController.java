@@ -41,7 +41,10 @@ public class LogInController {
                 return user;
             }
         });
-        if (userList.get(0).getId().equals(username) && userList.get(0).getPassword().equals(password)){
+
+        if (userList.isEmpty()){
+            return "login";
+        }else if (userList.get(0).getId().equals(username) && userList.get(0).getPassword().equals(password)){
             return "index";
         }else {
             return "login";
