@@ -4,12 +4,14 @@ import group11project.demo.entity.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -29,7 +31,8 @@ public class LogInController {
 
     @PostMapping("/log")
     public String Log_in(@RequestParam("username") String username,
-                         @RequestParam("password") String password){
+                         @RequestParam("password") String password,
+                         HttpSession session){
         String sql = "Select*FROM user Where id = '" + username + "'";
         List<User>userList = jdbcTemplate.query(sql, new RowMapper<User>() {
             User user = null;
@@ -42,13 +45,24 @@ public class LogInController {
             }
         });
 
+
+
         if (userList.isEmpty()){
             return "login";
         }else if (userList.get(0).getId().equals(username) && userList.get(0).getPassword().equals(password)){
+            session.setMaxInactiveInterval(30*60);
+            session.setAttribute("id",userList.get(0));
+            System.out.println(session.getAttribute("id"));
             return "index";
         }else {
             return "login";
         }
+    }
+
+    @RequestMapping("/logout")
+    public String Log_out(HttpSession session){
+        session.invalidate();
+        return "index";
     }
 }
 

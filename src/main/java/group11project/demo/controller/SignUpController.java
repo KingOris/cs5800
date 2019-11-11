@@ -26,7 +26,7 @@ public class SignUpController {
     @PostMapping("/signup")
     public String Log_in(@RequestParam("username") String username,
                          @RequestParam("password") String password){
-        String sql = "INSERT INTO user (id,password) VALUES ('" + username +"','"+ password.toString()+ "')";
+        String sql = "INSERT INTO user (id,password) VALUES ('" + username +"','"+ password+ "')";
         jdbcTemplate.update(sql);
         return "index";
 }
