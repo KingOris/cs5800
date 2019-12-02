@@ -2,18 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to ICON</title>
+    <title>Welcome to BICON</title>
 </head>
 <body>
-    <h1>Welcome to ICON</h1>
+    <h1>Welcome to BICON</h1>
     <br>
     <br>
-    <p>
+
+    <div th:unless ="${session.id != null}">
         <a href="login">Please login to your account</a>
         <br>
         <br>
         <a href="signUp">New User? Please sign up</a>
-    </p>
+    </div>
 
+    <div th:if ="${session.id != null}">
+        <p>Welcome Back <span style="color:blue" th:text="${session.id.id}"> </span>
+        <button class="btn btn-outline-primary" onclick="location.href='/logout'"> log out </button>
+        </p>
+    </div>
 </body>
 </html>

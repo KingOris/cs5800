@@ -19,9 +19,9 @@
       
 </head>
 
-  
 <body >
 <div id="login_frame">
+  <a th:text="${warning}"></a>
     <p id="image_logo"><img src="../icon.png" alt="icon-logo" width="50%" height="50%"></p>
     <form action="index.html" class="form-signin" method="post" th:action="@{/log}">
         <p><label class="label_input">username&nbsp&nbsp</label><label for="username"></label><input type="text"
@@ -42,3 +42,4 @@
       </div>
 </body>
 </html>
+

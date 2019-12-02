@@ -8,7 +8,9 @@
       <!-- Custom styles for this template -->
       <link href="asserts/css/signin.css" th:href="@{/asserts/css/signin.css}" rel="stylesheet">
 </head>
+
 <body>
+    <a th:text="${warning}"> </a>
         <form action="index.html" class="form-signup" method="post" th:action="@{/signup}">
              <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
              <label class="sr-only">Username</label>

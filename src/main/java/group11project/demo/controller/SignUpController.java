@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import java.sql.ResultSet;
@@ -25,9 +26,16 @@ public class SignUpController {
 
     @PostMapping("/signup")
     public String Log_in(@RequestParam("username") String username,
-                         @RequestParam("password") String password){
-        String sql = "INSERT INTO user (id,password) VALUES ('" + username +"','"+ password.toString()+ "')";
-        jdbcTemplate.update(sql);
-        return "index";
+                         @RequestParam("password") String password,
+                         RedirectAttributes redirectAttributes){
+        String sql = "INSERT INTO user (id,password) VALUES ('" + username +"','"+ password+ "')";
+        try{
+            jdbcTemplate.update(sql);
+            return "index";
+        }catch(Exception e){
+            redirectAttributes.addFlashAttribute("warning","Sign up failed");
+            return "redirect:/signUp";
+        }
+
 }
 }
