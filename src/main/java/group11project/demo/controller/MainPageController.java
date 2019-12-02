@@ -18,10 +18,10 @@ import java.util.Map;
 
 
 @Controller
-public class LogInController {
-    @RequestMapping("/login")
+public class MainPageController {
+    @RequestMapping("/mainPage")
     public String login(){
-        return "login";
+        return "mainPage";
     }
 
     @Resource
@@ -41,10 +41,7 @@ public class LogInController {
                 return user;
             }
         });
-
-        if (userList.isEmpty()){
-            return "login";
-        }else if (userList.get(0).getId().equals(username) && userList.get(0).getPassword().equals(password)){
+        if (userList.get(0).getId().equals(username) && userList.get(0).getPassword().equals(password)){
             return "index";
         }else {
             return "login";
