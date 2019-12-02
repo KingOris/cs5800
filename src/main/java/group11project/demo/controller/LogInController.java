@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import javax.annotation.Resource;
@@ -32,7 +33,8 @@ public class LogInController {
     @PostMapping("/log")
     public String Log_in(@RequestParam("username") String username,
                          @RequestParam("password") String password,
-                         HttpSession session){
+                         HttpSession session,
+                         RedirectAttributes redirectAttributes){
         String sql = "Select*FROM user Where id = '" + username + "'";
         List<User>userList = jdbcTemplate.query(sql, new RowMapper<User>() {
             User user = null;
@@ -48,14 +50,16 @@ public class LogInController {
 
 
         if (userList.isEmpty()){
-            return "login";
+            redirectAttributes.addFlashAttribute("warning","Username/Password incorrect");
+            return "redirect:/login";
         }else if (userList.get(0).getId().equals(username) && userList.get(0).getPassword().equals(password)){
             session.setMaxInactiveInterval(30*60);
             session.setAttribute("id",userList.get(0));
             System.out.println(session.getAttribute("id"));
             return "index";
         }else {
-            return "login";
+            redirectAttributes.addFlashAttribute("warning","Username/Password incorrect");
+            return "redirect:/login";
         }
     }
 

@@ -13,12 +13,15 @@
        </head>
 
    <body class="text-center">
+    <a th:text="${warning}"></a>
       <form action="index.html" class="form-signin" method="post" th:action="@{/log}">
              <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
              <label class="sr-only">Username</label>
              <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="">
              <label class="sr-only">Password</label>
              <input type="password" class="form-control" name="password" placeholder="Password" required="">
-             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+             <button class="btn btn-outline-primary" type="submit">Sign in</button>
           </form>
+
+        <button class ="btn btn-outline-primary" onclick="location.href='/signUp'">Sign Up</button>
    </body>
