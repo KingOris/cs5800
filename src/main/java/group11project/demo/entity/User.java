@@ -47,6 +47,16 @@ public class User {
         this.email = email;
     }
 
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    private boolean admin;
     private String email;
     private boolean instructor;
 

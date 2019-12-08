@@ -46,6 +46,9 @@ public class LogInController {
                 user = new User();
                 user.setId(resultSet.getString("id"));
                 user.setPassword(resultSet.getString("password"));
+                user.setInstructor(resultSet.getBoolean("instructor"));
+                user.setAdmin(resultSet.getBoolean("admin"));
+                user.setStudent(resultSet.getBoolean("student"));
                 return user;
             }
         });
@@ -56,10 +59,14 @@ public class LogInController {
             redirectAttributes.addFlashAttribute("warning","Username/Password incorrect");
             return "redirect:/login";
         }else if (userList.get(0).getId().equals(username) && userList.get(0).getPassword().equals(password)){
-            session.setMaxInactiveInterval(30*60);
-            session.setAttribute("id",userList.get(0));
+            System.out.println(userList.get(0).isAdmin());
+            if(userList.get(0).isAdmin()==true){
+                session.setMaxInactiveInterval(30*60);
+                session.setAttribute("id",userList.get(0));
+                return "admin_homepage";
+            }
+
                 String sqlcourse = "Select*FROM user.course";
-                System.out.println(1);
                 List<Course> courseList = jdbcTemplate.query(sqlcourse, new RowMapper<Course>() {
                     Course course = null;
                     @Override
