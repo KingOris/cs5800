@@ -36,8 +36,7 @@ public class JdbcController {
         return "user";
     }
 
-    // todo requestMapping
-    @RequestMapping("/")
+    @RequestMapping("/log")
     public String getCouseInfo(ModelMap map){
         String sql = "Select*FROM table";
         List<Course> courseList = jdbcTemplate.query(sql, new RowMapper<Course>() {

@@ -70,13 +70,21 @@
     <div class="centered" style="background: black;height:700px;width:fit-content; color: white;font-size: x-large">
         <table>
             <tr>
-            <tr>Course 1</tr>
-            <tr>Course 2</tr>
+            <tr>course code</tr>
+            <tr>course name</tr>
+            <tr>semester hours</tr>
+            <tr>number of seats</tr>
+            <tr>primary instructor</tr>
+            <tr>department</tr>
             <tr>
-            <tr th:each="user:${users}">
-                <td th:text="${user.id}"></td>
-                <td th:text="${user.password}"></td>
-            </tr>
+            <tr th:each="course:${courses}">
+                <td th:text="${course.courseCode}"></td>
+                <td th:text="${course.courseName}"></td>
+                <td th:text="${course.semesterHours}"></td>
+                <td th:text="${course.numOfSeats}"></td>
+                <td th:text="${course.primaryInstructor}"></td>
+                <td th:text="${course.department}"></td>
+        </tr>
         </table>
     </div>
 </div>
