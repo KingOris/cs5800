@@ -1,12 +1,17 @@
 package group11project.demo.entity;
 
 public class Course {
-    private final String courseCode;
+
+    private  String courseCode;
     private String courseName;
     private String primaryInstructor;
     private int numOfSeats;
     private int semesterHours;
     private String department;
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
@@ -52,12 +57,5 @@ public class Course {
         return department;
     }
 
-    public Course(String courseCode, String courseName, String primaryInstructor, int numOfSeats, int semesterHours, String department) {
-        this.courseCode = courseCode;
-        this.courseName = courseName;
-        this.primaryInstructor = primaryInstructor;
-        this.numOfSeats = numOfSeats;
-        this.semesterHours = semesterHours;
-        this.department = department;
-    }
+
 }

@@ -20,4 +20,26 @@ public class User {
     }
 
     private String password;
+
+    public boolean isStudent() {
+        return student;
+    }
+
+    public void setStudent(boolean student) {
+        this.student = student;
+    }
+
+    public boolean isInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(boolean instructor) {
+        this.instructor = instructor;
+    }
+
+    private boolean student;
+
+    private boolean instructor;
+
+
 }
