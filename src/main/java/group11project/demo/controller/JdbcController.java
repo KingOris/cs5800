@@ -29,6 +29,8 @@ public class JdbcController {
                 user = new User();
                 user.setId(resultSet.getString("id"));
                 user.setPassword(resultSet.getString("password"));
+                user.setInstructor(resultSet.getBoolean("instructor"));
+                user.setInstructor(resultSet.getBoolean("Student"));
                 return user;
             }
         });
