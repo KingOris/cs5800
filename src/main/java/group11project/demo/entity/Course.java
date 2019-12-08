@@ -2,7 +2,12 @@ package group11project.demo.entity;
 
 public class Course {
 
-    private  String courseCode;
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
+
+    private String courseCode;
+
     private String courseName;
     private String primaryInstructor;
     private int numOfSeats;
@@ -56,6 +61,5 @@ public class Course {
     public String getDepartment() {
         return department;
     }
-
 
 }
