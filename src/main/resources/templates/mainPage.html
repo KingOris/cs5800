@@ -3,7 +3,7 @@
 <style>
     .split {
         height: 100%;
-        width: 50%;
+        width: 80%;
         position: fixed;
         z-index: 1;
         top: 0;
@@ -48,9 +48,6 @@
                 <td height="100px">Account</td>
             </tr>
             <tr>
-                <td height="100px">course</td>
-            </tr>
-            <tr>
                 <td height="100px">group</td>
             </tr>
             <tr>
@@ -70,12 +67,12 @@
     <div class="centered" style="background: black;height:700px;width:fit-content; color: white;font-size: x-large">
         <table>
             <tr>
-            <tr>course code</tr>
-            <tr>course name</tr>
-            <tr>semester hours</tr>
-            <tr>number of seats</tr>
-            <tr>primary instructor</tr>
-            <tr>department</tr>
+            <tr>course code  |  </tr>
+            <tr>course name  |  </tr>
+            <tr>semester hours  |  </tr>
+            <tr>number of seats  |  </tr>
+            <tr>primary instructor  |  </tr>
+            <tr>department  </tr>
             <tr>
             <tr th:each="course:${courses}">
                 <td th:text="${course.courseCode}"></td>
