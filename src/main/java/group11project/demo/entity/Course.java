@@ -14,9 +14,6 @@ public class Course {
     private int semesterHours;
     private String department;
 
-    public void setCourseCode(String courseCode) {
-        this.courseCode = courseCode;
-    }
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;

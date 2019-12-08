@@ -27,7 +27,9 @@ public class JdbcController {
             @Override
             public User mapRow(ResultSet resultSet, int i) throws SQLException {
                 user = new User();
+
                 user.setId(resultSet.getString("id"));
+                System.out.println(user.getId());
                 user.setPassword(resultSet.getString("password"));
                 user.setInstructor(resultSet.getBoolean("instructor"));
                 user.setInstructor(resultSet.getBoolean("Student"));
@@ -38,24 +40,5 @@ public class JdbcController {
         return "user";
     }
 
-    @RequestMapping("/log")
-    public String getCouseInfo(ModelMap map){
-        String sql = "Select*FROM table";
-        List<Course> courseList = jdbcTemplate.query(sql, new RowMapper<Course>() {
-            Course course = null;
-            @Override
-            public Course mapRow(ResultSet resultSet, int i) throws SQLException {
-                course = new Course();
-                course.setCourseName(resultSet.getString("courseName"));
-                course.setDepartment(resultSet.getString("department"));
-                course.setNumOfSeats(resultSet.getInt("numOfSeats"));
-                course.setPrimaryInstructor(resultSet.getString("primaryInstructor"));
-                course.setSemesterHours(resultSet.getInt("semesterHours"));
-                course.setCourseCode(resultSet.getString("courseCode"));
-                return course;
-            }
-        });
-        map.addAttribute("courses", courseList);
-        return "mainPage";
-    }
+
 }
