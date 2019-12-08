@@ -23,30 +23,6 @@ public class MainPageController {
     public String login(){
         return "mainPage";
     }
-
-    @Resource
-    private JdbcTemplate jdbcTemplate;
-
-    @PostMapping("/log")
-    public String Log_in(@RequestParam("username") String username,
-                         @RequestParam("password") String password){
-        String sql = "Select*FROM user Where id = '" + username + "'";
-        List<User>userList = jdbcTemplate.query(sql, new RowMapper<User>() {
-            User user = null;
-            @Override
-            public User mapRow(ResultSet resultSet, int i) throws SQLException {
-                user = new User();
-                user.setId(resultSet.getString("id"));
-                user.setPassword(resultSet.getString("password"));
-                return user;
-            }
-        });
-        if (userList.get(0).getId().equals(username) && userList.get(0).getPassword().equals(password)){
-            return "index";
-        }else {
-            return "login";
-        }
-    }
 }
 
 

@@ -56,7 +56,7 @@ public class LogInController {
             session.setMaxInactiveInterval(30*60);
             session.setAttribute("id",userList.get(0));
             System.out.println(session.getAttribute("id"));
-            return "index";
+            return "mainPage";
         }else {
             redirectAttributes.addFlashAttribute("warning","Username/Password incorrect");
             return "redirect:/login";
