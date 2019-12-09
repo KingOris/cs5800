@@ -5,6 +5,7 @@ import group11project.demo.entity.CalendarEvent;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Controller
 public class CalendarController {
     @Resource
     private JdbcTemplate jdbcTemplate;
@@ -34,5 +36,5 @@ public class CalendarController {
         });
         map.addAttribute("calendar", calendar);
         return "calendar";
-    }*/
+    }
 }
