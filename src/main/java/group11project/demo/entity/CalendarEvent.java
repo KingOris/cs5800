@@ -1,8 +1,20 @@
 package group11project.demo.entity;
 
-import java.util.Date;
-
 public class CalendarEvent {
+
+    private int month;
+    private String eventName;
+    private long eventID;
+    private int date;
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
     public String getEventName() {
         return eventName;
     }
@@ -11,15 +23,19 @@ public class CalendarEvent {
         this.eventName = eventName;
     }
 
-    public String getEventID() {
+    public long getEventID() {
         return eventID;
     }
 
-    public void setEventID(String eventID) {
+    public void setEventID(long eventID) {
         this.eventID = eventID;
     }
 
-    private String eventName;
-    private String eventID;
-    private Date date;
+    public int getDate() {
+        return date;
+    }
+
+    public void setDate(int date) {
+        this.date = date;
+    }
 }
