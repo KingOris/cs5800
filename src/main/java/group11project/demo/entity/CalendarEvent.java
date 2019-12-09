@@ -21,5 +21,14 @@ public class CalendarEvent {
 
     private String eventName;
     private String eventID;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     private Date date;
 }

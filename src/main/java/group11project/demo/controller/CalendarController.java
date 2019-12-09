@@ -1,7 +1,5 @@
 package group11project.demo.controller;
 
-import group11project.demo.entity.CalendarDate;
-import group11project.demo.entity.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.ui.ModelMap;
@@ -15,7 +13,7 @@ import java.util.List;
 public class CalendarController {
     @Resource
     private JdbcTemplate jdbcTemplate;
-
+/*
     // todo request mapping
     public String getCalendarInfo(ModelMap map){
         String sql = "Select*FROM calendar";
@@ -33,5 +31,5 @@ public class CalendarController {
         });
         map.addAttribute("calendar", calendar);
         return "calendar";
-    }
+    }*/
 }
