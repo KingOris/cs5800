@@ -21,7 +21,7 @@ public class CalendarController {
 
     @RequestMapping("/calendar")
     public String getCalendarInfo(ModelMap map){
-        String sql = "Select*FROM calendarevent";
+        String sql = "Select*FROM user.calendarevent";
         List<CalendarEvent> calendar = jdbcTemplate.query(sql, new RowMapper<CalendarEvent>() {
             CalendarEvent calendarEvent = null;
             @Override

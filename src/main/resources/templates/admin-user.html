@@ -5,6 +5,7 @@
     <title>User</title>
 </head>
 <body>
+<form action="index.html" class="form-signin" method="post" th:action="@{/delete}">
     <table>
         <thead>
         <tr>
@@ -23,7 +24,9 @@
     </tr>
         </tbody>
     </table>
+    <button class="btn btn-outline-primary" type="submit">delete User</button>
+</form>
     <button class ="btn btn-outline-primary" onclick="location.href='/signUp'">Sign Up</button>
-    <button class ="btn btn-outline-primary" onclick="location.href='/deleteUser'">delete User</button>
+
 </body>
 </html>
