@@ -5,6 +5,19 @@
     <title>Account</title>
 </head>
 <body>
-
+    <table>
+        <tr>
+        <tr>id</tr>
+        <tr>password</tr>
+        <tr>student</tr>
+        <tr>Instructor</tr>
+        <tr>
+        <tr th:each="user:${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${user.isStudent()}"></td>
+            <td th:text="${user.isInstructor()}"></td>
+        </tr>
+    </table>
 </body>
 </html>
