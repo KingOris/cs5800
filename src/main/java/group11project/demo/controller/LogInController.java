@@ -65,7 +65,8 @@ public class LogInController {
                 session.setAttribute("id",userList.get(0));
                 return "admin_homepage";
             }
-
+                session.setMaxInactiveInterval(30*60);
+                session.setAttribute("id",userList.get(0));
                 String sqlcourse = "Select*FROM user.course";
                 List<Course> courseList = jdbcTemplate.query(sqlcourse, new RowMapper<Course>() {
                     Course course = null;

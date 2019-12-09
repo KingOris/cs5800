@@ -17,8 +17,6 @@ public class LoginInterceport implements HandlerInterceptor {
             response.sendRedirect(request.getContextPath()+"/login");
             return false;
         }
-
-        System.out.println(session.getAttribute("id"));
         return true;
     }
 }

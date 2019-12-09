@@ -26,8 +26,8 @@ public class CalendarController {
                 calendarDate = new CalendarDate();
 
                 // todo figure out how to store the event and date in mySQL
-                calendarDate.setCalendarEvent(resultSet.getString("calendarEvent"));
-                calendarDate.setDate(resultSet.getString("date"));
+                //calendarDate.setCalendarEvent(resultSet.getString("calendarEvent"));
+                calendarDate.setDate(resultSet.getDate("date"));
                 return calendarDate;
             }
         });
