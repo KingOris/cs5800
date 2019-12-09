@@ -33,7 +33,14 @@
 
     <tr>
         <td>8</td>
-        <td>9</td>
+        <td>
+            <tr>
+                9
+            </tr>
+            <tr th:each="event:${calendar}">
+                <td th:if ="${event.date == 9}" th:text="${event.eventName}"></td>
+            </tr>
+        </td>
         <td>10</td>
         <td>11</td>
         <td>
@@ -41,9 +48,7 @@
                 12
             </tr>
             <tr th:each="event:${calendar}">
-                <table th:if ="${event.date == 12}">
-                    <td th:text="${event.eventName}"></td>
-                </table>
+                <td th:if ="${event.date == 12}" th:text="${event.eventName}"></td>
             </tr>
         </td>
         <td>13</td>
@@ -75,11 +80,6 @@
             <table>
                 <tr>
                     29
-                </tr>
-                <tr th:each="event:${calendar}">
-                    <table th:if ="${event.date == 12}">
-                        <td th:text="${event.eventName}"></td>
-                    </table>
                 </tr>
             </table>
         </td>
