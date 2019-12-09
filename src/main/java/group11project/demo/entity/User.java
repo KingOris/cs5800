@@ -3,6 +3,16 @@ package group11project.demo.entity;
 public class User {
     private String id;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String name;
+
     public String getId() {
         return id;
     }
