@@ -8,15 +8,11 @@
     <table>
         <tr>
         <tr>id</tr>
-        <tr>password</tr>
-        <tr>student</tr>
-        <tr>Instructor</tr>
         <tr>
         <tr th:each="user:${users}">
             <td th:text="${user.id}"></td>
-            <td th:text="${user.password}"></td>
-            <td th:text="${user.isStudent()}"></td>
-            <td th:text="${user.isInstructor()}"></td>
+            <td th:if="${user.isStudent()==true}">Student</td>
+            <td th:if="${user.isInstructor()==true}">Instructor</td>
         </tr>
     </table>
 </body>

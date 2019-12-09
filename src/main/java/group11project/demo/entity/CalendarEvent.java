@@ -1,5 +1,7 @@
 package group11project.demo.entity;
 
+import java.util.Date;
+
 public class CalendarEvent {
     public String getEventName() {
         return eventName;
@@ -19,4 +21,5 @@ public class CalendarEvent {
 
     private String eventName;
     private String eventID;
+    private Date date;
 }
