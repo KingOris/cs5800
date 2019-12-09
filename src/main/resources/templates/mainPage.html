@@ -66,14 +66,17 @@
 <div class="split right">
     <div class="centered" style="background: black;height:700px;width:fit-content; color: white;font-size: x-large">
         <table>
+        <thread>
             <tr>
-            <tr>course code  |  </tr>
-            <tr>course name  |  </tr>
-            <tr>semester hours  |  </tr>
-            <tr>number of seats  |  </tr>
-            <tr>primary instructor  |  </tr>
-            <tr>department  </tr>
-            <tr>
+            <th>course code  |  </th>
+            <th>course name  |  </th>
+            <th>semester hours  |  </th>
+            <th>number of seats  |  </th>
+            <th>primary instructor  |  </th>
+            <th>department  </th>
+            </tr>
+        </thread>
+            <tbody>
             <tr th:each="course:${courses}">
                 <td th:text="${course.courseCode}"></td>
                 <td th:text="${course.courseName}"></td>
@@ -82,6 +85,7 @@
                 <td th:text="${course.primaryInstructor}"></td>
                 <td th:text="${course.department}"></td>
         </tr>
+            </tbody>
         </table>
     </div>
 </div>
