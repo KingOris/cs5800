@@ -1,7 +1,8 @@
 package group11project.demo.controller;
 
+
 import group11project.demo.entity.CalendarEvent;
-import group11project.demo.entity.User;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.ui.ModelMap;
@@ -33,5 +34,5 @@ public class CalendarController {
         });
         map.addAttribute("calendar", calendar);
         return "calendar";
-    }
+    }*/
 }

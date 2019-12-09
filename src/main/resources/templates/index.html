@@ -19,6 +19,7 @@
     <div th:if ="${session.id != null}">
         <p>Welcome Back <span style="color:blue" th:text="${session.id.id}"> </span>
         <button class="btn btn-outline-primary" onclick="location.href='/logout'"> log out </button>
+        <button class="btn btn-outline-primary" onclick="location.href='mainPage'"> Main Page </button>
         </p>
     </div>
 </body>

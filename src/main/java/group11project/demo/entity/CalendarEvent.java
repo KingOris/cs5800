@@ -31,6 +31,7 @@ public class CalendarEvent {
         this.eventID = eventID;
     }
 
+
     public int getDate() {
         return date;
     }
