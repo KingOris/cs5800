@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Course</title>
+</head>
+<body>
+<a th:text="${warning}"> </a>
+<form action="index.html" class="form-signup" method="post" th:action="@{/jdbc/addcourse}">
+             <h1 class="h3 mb-3 font-weight-normal">Add Course</h1>
+             <label class="sr-only">Course Code</label>
+    <br>
+             <input type="text" class="form-control" name="courseCode" placeholder="Username" required="" autofocus="">
+    <br>
+             <label class="sr-only">Course Name</label>
+    <br>
+             <input type="test" class="form-control" name="courseName" placeholder="Name" required="">
+    <br>
+    <label class="“sr-only">Instructor</label>
+    <br>
+    <input type="text" class="form-control" name="Instructor" placeholder="Instructor" required="">
+    <br>
+    <label class="“sr-only">Num of Seats</label>
+    <br>
+    <input type="text" class="form-control" name="Num of Seats" placeholder="seats" required="">
+    <br>
+    <label class="“sr-only">Semester Hours</label>
+    <br>
+    <input type="text" class="form-control" name="Semester Hours" placeholder="SH" required="">
+    <br>
+    <label class="“sr-only">Department</label>
+    <br>
+    <input type="text" class="form-control" name="department" placeholder="seats" required="">
+    <Br>
+
+           
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up as a new course</button>
+         
+</form>
+</body>
+</html>

@@ -16,6 +16,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/jdbc")
 public class JdbcController {
+    @RequestMapping("/addCourse")
+    public String addcourse(){
+        return "addCourse";
+    }
     @Resource
     private JdbcTemplate jdbcTemplate;
 
