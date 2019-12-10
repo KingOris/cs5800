@@ -5,7 +5,6 @@
     <title>User</title>
 </head>
 <body>
-<form action="index.html" class="form-signin" method="post" th:action="@{/delete}">
     <table>
         <thead>
         <tr>
@@ -21,12 +20,15 @@
         <td th:text="${user.password}"></td>
         <td th:text="${user.isStudent()}"></td>
         <td th:text="${user.isInstructor()}"></td>
+            <td>
+                <a th:href="@{'/jdbc/delete/'+${user.id}}" >delete User</a>
+            </td>
+
     </tr>
         </tbody>
     </table>
-    <button class="btn btn-outline-primary" type="submit">delete User</button>
-</form>
-    <button class ="btn btn-outline-primary" onclick="location.href='/signUp'">Sign Up</button>
+
+    <button class ="btn btn-outline-primary" onclick="location.href='/signUp'">Add User</button>
 
 </body>
 </html>

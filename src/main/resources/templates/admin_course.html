@@ -24,6 +24,9 @@
         <td th:text="${course.numOfSeats}"></td>
         <td th:text="${course.primaryInstructor}"></td>
         <td th:text="${course.department}"></td>
+        <td>
+            <a th:href="@{'/jdbc/delete/course/'+${course.courseCode}}" >delete Course</a>
+        </td>
     </tr>
     </tbody>
 </table>

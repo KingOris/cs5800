@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adin Information</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+    <tr>id</tr>
+    <tr>email</tr>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user:${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.isStudent()}"></td>
+        <td th:text="${user.isInstructor()}"></td>
+        <td>
+            <button class ="btn btn-outline-primary" th:href="@{'/jdbc/delete/'+${user.id}}" >delete User</button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+<button class ="btn btn-outline-primary" onclick="location.href='/signUp'">Sign Up</button>
+
+</body>
+</html>

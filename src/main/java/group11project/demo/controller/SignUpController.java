@@ -27,11 +27,28 @@ public class SignUpController {
     @PostMapping("/signup")
     public String Log_in(@RequestParam("username") String username,
                          @RequestParam("password") String password,
+                         @RequestParam("Type") String Type,
+                         @RequestParam("email") String email,
                          RedirectAttributes redirectAttributes){
-        String sql = "INSERT INTO user (id,password) VALUES ('" + username +"','"+ password+ "')";
+        int admin= 0;
+        int student=0;
+        int instructor=0;
+        if(Type.equals("admin")){
+            admin=1;
+        }
+
+        if(Type.equals("student")){
+            student=1;
+        }
+
+        if(Type.equals("instructor")){
+            instructor=1;
+        }
+        String sql = "INSERT INTO user (id,password,locked,student,instructor,email,admin) VALUES ('" + username +"','"+ password+"','"+"0"+"','"+student+"','"+instructor+"','"+email+"','"+admin+"')";
+        System.out.println(sql);
         try{
             jdbcTemplate.update(sql);
-            return "index";
+            return "admin_homepage";
         }catch(Exception e){
             redirectAttributes.addFlashAttribute("warning","Sign up failed");
             return "redirect:/signUp";

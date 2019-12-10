@@ -5,7 +5,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -34,11 +37,18 @@ public class AccountController {
                 user.setId(resultSet.getString("id"));
                 user.setPassword(resultSet.getString("password"));
                 user.setInstructor(resultSet.getBoolean("instructor"));
-                user.setInstructor(resultSet.getBoolean("Student"));
+                user.setStudent(resultSet.getBoolean("Student"));
                 return user;
             }
         });
         map.addAttribute("users",userList);
         return "account";
+    }
+
+    @PostMapping("/changePassword")
+    public String changePasswaord(@RequestParam("Oldpassword") String old_password,
+                                  @RequestParam("Newpassword") String new_password,
+                                  RedirectAttributes redirectAttributes){
+        return "redirect:/login";
     }
 }
