@@ -22,6 +22,11 @@ import java.util.List;
 
 @RequestMapping("/jdbc")
 public class JdbcController {
+    @RequestMapping("/mainPage")
+    public String login(){
+        return "admin_homepage";
+    }
+
     @onlyadmin
     @RequestMapping("/addCourse")
     public String addcourse(){

@@ -17,6 +17,6 @@ public class SessionConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(new LoginInterceport()).addPathPatterns("/**").excludePathPatterns("/","/login","/log","/forgetPassword");
+        registry.addInterceptor(new LoginInterceport()).addPathPatterns("/**").excludePathPatterns("/","/login","/log","/forgetPassword","/Findpassword/**");
     }
 }
